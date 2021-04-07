@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fourier.gd" type="Script" id=1]
+[ext_resource path="res://Screen Shot 2021-04-04 at 12.15.42 PM.png" type="Texture" id=2]
+
+[node name="Fourier" type="Node2D"]
+script = ExtResource( 1 )
+num_of_vectors = 101
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 39.2952
+margin_top = 24.2973
+margin_right = 174.295
+margin_bottom = 47.2973
+text = "STATE: NO DRAWING"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NEW PATH" type="Button" parent="CanvasLayer"]
+margin_left = 39.8573
+margin_top = 56.4919
+margin_right = 119.857
+margin_bottom = 76.4919
+text = "NEW PATH"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DRAWING" type="Button" parent="CanvasLayer"]
+margin_left = 43.0
+margin_top = 84.0
+margin_right = 120.0
+margin_bottom = 109.0
+text = "DRAWING"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FOLLOW" type="Button" parent="CanvasLayer"]
+margin_left = 44.2896
+margin_top = 116.763
+margin_right = 134.29
+margin_bottom = 136.763
+text = "Follow Point"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ORIGIN" type="Button" parent="CanvasLayer"]
+margin_left = 46.0
+margin_top = 144.0
+margin_right = 112.0
+margin_bottom = 164.0
+text = "RETURN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed Slider" type="HSlider" parent="CanvasLayer"]
+margin_left = 305.001
+margin_top = 21.0
+margin_right = 1001.0
+margin_bottom = 37.0
+max_value = 1000.0
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Speed Slider"]
+margin_top = 21.0033
+margin_right = 40.0
+margin_bottom = 35.0033
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/Speed Slider"]
+margin_left = 661.673
+margin_top = 20.2557
+margin_right = 701.673
+margin_bottom = 34.2557
+text = "1000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed" type="Label" parent="CanvasLayer/Speed Slider"]
+margin_left = -80.1031
+margin_right = -9.10309
+margin_bottom = 14.0
+text = "Speed: 50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+show_behind_parent = true
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="CanvasLayer/NEW PATH" to="." method="_on_NEW_PATH_pressed"]
+[connection signal="pressed" from="CanvasLayer/DRAWING" to="." method="_on_DRAWING_pressed"]
+[connection signal="pressed" from="CanvasLayer/FOLLOW" to="." method="_on_FOLLOW_pressed"]
+[connection signal="pressed" from="CanvasLayer/ORIGIN" to="." method="_on_ORIGIN_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Speed Slider" to="." method="_on_Speed_Slider_value_changed"]
