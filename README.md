@@ -1,5 +1,5 @@
 # Fourier-Drawings
-Visualization of using Fourier Series to draw. You can draw your own paths and it will calculate and render the visualization. Note the UI is very ugly but you can al
+Visualization of using Fourier Series to draw. You can draw your own paths and it will calculate and render the visualization. Note the UI is very ugly but you can always change it :)
 
 ## How to Use
 * Pressing the NEW PATH button starts a new path. Allowing you to draw a continous line.
