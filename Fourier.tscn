@@ -16,7 +16,7 @@ margin_left = 39.2952
 margin_top = 24.2973
 margin_right = 174.295
 margin_bottom = 47.2973
-text = "STATE: NO DRAWING"
+text = "STATE: IDLE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,10 +43,10 @@ __meta__ = {
 
 [node name="FOLLOW" type="Button" parent="CanvasLayer"]
 margin_left = 44.2896
-margin_top = 116.763
+margin_top = 117.792
 margin_right = 134.29
-margin_bottom = 136.763
-text = "Follow Point"
+margin_bottom = 137.792
+text = "FOLLOW POINT"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -5,7 +5,7 @@ var arrowthicc = 65.0
 var pointercolor = Color(1,1,1)
 var circlecolor = Color8(3,198,252)
 
-var state = "NO DRAWING"
+var state = "IDLE"
 var draw_own = true
 var follow = false
 
@@ -69,27 +69,32 @@ func _input(event):
    # Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		if state == "DRAWING":
-			state = "GENERATING SERIES"
-			update_state()
-			drawing_value.append(drawing_value[0])
-			#interpolate sorta
-			var new_cords = PoolVector2Array()
-			for i in range(0,len(drawing_value)-1):
-				var a = drawing_value[i]
-				var b = drawing_value[i+1]
-				var steps = float(ceil((a-b).length()/step))
-				for x in range(0,steps):
-					new_cords.append(a+(b-a)*x/steps)
-			new_cords.append(new_cords[0])
-			drawing_value = new_cords
-			drawing_coords = [[drawing_value[0]]]
-			for i in range(1,len(drawing_value)):
-				if len(drawing_coords[-1])==15000:
-					drawing_coords.append([drawing_coords[-1][-1]])
-				drawing_coords[-1].append(drawing_value[i])
-			update()
-			print(len(drawing_value))
-			generate_series()
+			if len(drawing_value)>=2:
+				state = "GENERATING SERIES"
+				update_state()
+				drawing_value.append(drawing_value[0])
+				#interpolate sorta
+				var new_cords = PoolVector2Array()
+				for i in range(0,len(drawing_value)-1):
+					var a = drawing_value[i]
+					var b = drawing_value[i+1]
+					var steps = float(ceil((a-b).length()/step))
+					for x in range(0,steps):
+						new_cords.append(a+(b-a)*x/steps)
+				new_cords.append(new_cords[0])
+				drawing_value = new_cords
+				drawing_coords = [[drawing_value[0]]]
+				for i in range(1,len(drawing_value)):
+					if len(drawing_coords[-1])==15000:
+						drawing_coords.append([drawing_coords[-1][-1]])
+					drawing_coords[-1].append(drawing_value[i])
+				update()
+				print(len(drawing_value))
+				generate_series()
+			else:
+				print("STOP DRAWING A DOT")
+				state = "IDLE"
+				update_state()
 		if state == "START DRAWING":
 			state = "DRAWING"
 			update_state()
@@ -152,14 +157,12 @@ func generate_series():
 	for t in range(0,len(drawing_value)):
 		c0 = c0 + drawing_value[t] * timeframe
 	fourier_series.append(SeriesElement.new(0, -c0.angle(), c0.length()))
-#	print(str(0) + " " + str(c0.angle()) + " " + str(c0.length()))
 	for i in range(1,num_of_vectors):
 		for n in [i, -i]:
 			var c = Vector2()
 			for t in range(0,len(drawing_value)):
 				c = c + (2*Vector2(0,c0.y) + Vector2(drawing_value[t].x, - drawing_value[t].y)).rotated(-2*PI*n*t*timeframe) * timeframe
 			fourier_series.append(SeriesElement.new(n, c.angle(), c.length()))
-#			print("["+str(n) + ", " + str(c.angle()) + ", " + str(c.length())+"],")
 	for t in range(0,len(drawing_value)):
 		var center = Vector2(0,0)
 		for element in fourier_series:
@@ -186,6 +189,9 @@ func _on_NEW_PATH_pressed():
 	drawing_coords = []
 	drawing_value = PoolVector2Array()
 	fourier_drawing = []
+	var draw_own = true
+	var follow = false
+	_on_ORIGIN_pressed()
 	update()
 	
 
