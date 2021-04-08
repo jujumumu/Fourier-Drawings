@@ -18,3 +18,8 @@ Visualization of using Fourier Series to draw. You can draw your own paths and i
 * You should always return before you start drawing a new path.
 * Drawing a path that is too short leading to low amounts of data points will result in a spike at the start as there are not enough data points.
 * The computation may take a while if you draw a long path.
+
+
+# Known Bugs
+* Drawing the arrows for a very small radius leads to an error. So zooming in on the point you may see many circles missing arrows. Your debugger will probably have thousands of errors. If anyone knows how to fix this please create an issue. 
+
