@@ -23,7 +23,7 @@ Visualization of using Fourier Series to draw. You can draw your own paths and i
 ## Known Bugs/Future Upgrades
 * Drawing the arrows for a very small radius leads to an error. So zooming in on the point you may see many circles missing arrows. Your debugger will probably have thousands of errors. If anyone knows how to fix this please create an issue. 
 * If needed I might change all the code to c++ gdnative for better performance when calculting the actual parameters.
-* If anyone here knows how to get the coordinates of a countinous line of a svg file please crete an issue for it.
+* If anyone here knows how to get the coordinates of a countinous line of a svg file (in any language preferably python) please crete an issue for it.
 
 ## How the Code Works
 [This Video](https://www.youtube.com/watch?v=r6sGWTCMz2k&t) by 3Blue1Brown explains the math/algorithm. You don't need to undertand the math to understand the code. The math behind this is pretty complicated but is very neat. Take a look if you have the time. 
