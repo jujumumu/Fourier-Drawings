@@ -15,7 +15,7 @@ Visualization of using Fourier Series to draw. You can draw your own paths and i
 * Num Of Vectors controls the amount of vectors used. The more the more accurate the algorithm will be to your own drawing but it will also take longer. (The actual number of vectors is 2xNum_Of_Vectors-1)
 
 ## Notes
-* You should always return before you start drawing a new path.
+* You should always press the RETURN button before you start drawing a new path so you draw close to the origin.
 * Drawing a path that is too short leading to low amounts of data points will result in a spike at the start as there are not enough data points.
 * The computation may take a while if you draw a long path.
 
