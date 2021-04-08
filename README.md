@@ -1,5 +1,5 @@
 # Fourier-Drawings
-Visualization of using Fourier Series to draw. You can draw your own paths and it will calculate and render the visualization. Note the UI is very ugly but you can always change it :) The Godot logo made with this:
+Visualization of using Fourier Series to draw. You can draw your own paths and it will calculate and render the visualization. These are all little arrows rotating at some constant speed connected to one another and it can draw anything! Note the UI is very ugly but you can always change it :) The Godot logo made with this:
 
 ![Godot Logo](https://user-images.githubusercontent.com/52044956/113972348-50974180-97ef-11eb-82f5-f49495a18091.png)
 
